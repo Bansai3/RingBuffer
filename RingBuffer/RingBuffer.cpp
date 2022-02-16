@@ -11,18 +11,7 @@ RingBuffer<T>::RingBuffer(int size)
 template<class T>
 void RingBuffer<T>::add_back(T new_elem)
 {
-	int count = 0;
-	T* pointer = data;
-	resize();
-	data = new T[size + 1];
-	for (auto i : data)
-	{
-		i = pointer[count];
-		count++;
-	}
-	data[size] = new_elem;
-	size++;
-	delete[pointer];
+	
 }
 
 template<class T>
