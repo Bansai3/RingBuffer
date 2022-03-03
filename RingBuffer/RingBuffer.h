@@ -1,7 +1,7 @@
 #pragma once
-#include<cmath>
-#include<iostream>
-#include<string>
+#include <cmath>
+#include <iostream>
+#include <string>
 
 template<class T2>
 class iterator
@@ -111,7 +111,7 @@ void RingBuffer<T>::add_back(T new_elem)
 				if (start_iterator == capacity - 1)
 					start_iterator = 0;
 				else
-				start_iterator++;
+					start_iterator++;
 			}
 			buffer[++end_iterator].data = new_elem;
 			buffer[end_iterator].state = "full";
@@ -136,7 +136,7 @@ void RingBuffer<T>::add_front(T new_elem)
 		buffer[start_iterator].state = "full";
 		end_iterator = start_iterator;
 		do
-		{ 
+		{
 			if (start_iterator == capacity - 1)
 			{
 				start_iterator = 0;
@@ -163,16 +163,7 @@ void RingBuffer<T>::remove_front()
 	}
 	else
 	{
-		try
-		{
-			setlocale(LC_ALL, "Russian");
-			std::cout << std::endl;
-			throw "Ячейка пуста удаление не возможно!";
-		}
-		catch (const char* message)
-		{
-			std::cout << message << std::endl;
-		}
+		throw "Ячейка пуста удаление невозможно!";
 	}
 }
 
@@ -209,16 +200,7 @@ void RingBuffer<T>::remove_back()
 	}
 	else
 	{
-		try
-		{
-			setlocale(LC_ALL, "Russian");
-			throw "Ячейка пуста удаление не возможно!";
-		}
-		catch (const char* message)
-		{
-			std::cout << std::endl;
-			std::cout << message << std::endl;
-		}
+		throw "Ячейка пуста удаление не возможно!";
 	}
 }
 
@@ -372,15 +354,7 @@ inline T RingBuffer<T>::operator[](int index)
 	}
 	else
 	{
-		try
-		{
-			throw "Выход за пределы массива!";
-		}
-		catch (const char* message)
-		{
-			std::cout << std::endl;
-			std::cout << message << std::endl;
-		}
+		throw "Выход за пределы массива!";
 	}
 }
 
